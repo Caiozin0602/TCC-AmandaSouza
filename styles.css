@@ -498,7 +498,7 @@ footer {
         display: flex;
     }
 
-    .contato{
+    .coluna-rodape{
         justify-content: center;
         justify-items: center;
         align-items: center;
