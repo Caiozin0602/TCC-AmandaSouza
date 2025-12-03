@@ -498,6 +498,14 @@ footer {
         display: flex;
     }
 
+    .contato{
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+
     @media (max-width: 900px) {
         .grid-cursos {
             padding: 0 1rem;
