@@ -530,4 +530,11 @@ footer {
             text-align: center;
         }
     }
+
+    .coluna-rodape{
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+    }
 }
