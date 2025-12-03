@@ -498,14 +498,6 @@ footer {
         display: flex;
     }
 
-    .coluna-rodape{
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        align-content: center;
-    }
-    
-
     @media (max-width: 900px) {
         .grid-cursos {
             padding: 0 1rem;
@@ -529,12 +521,5 @@ footer {
         .curso-info {
             text-align: center;
         }
-    }
-
-    .coluna-rodape{
-        justify-content: center;
-        justify-items: center;
-        align-items: center;
-        align-content: center;
     }
 }
