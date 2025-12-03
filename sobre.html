@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sobre.css" />
+  <link rel="shortcut icon" href="./Imgs/Design sem nome.png" type="image/x-icon" />
+  <title>Embelezamento Afro | Sobre mim</title>
+</head>
+
+<body>
+  <header>
+    <div class="marca-site">Embelezamento Afro</div>
+    <div class="botao-mobile" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul id="lista-navegacao">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="#cursos">Curso</a></li>  
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="agendar.html">Agendar</a></li>
+        <li><a href="https://www.instagram.com/studio_amanda.souza/?igsh=MWJ0c3Fqd3A5bHpjNw%3D%3D#" target="_blank"
+            id="ancora_insta"><img src="Imgs/Instagram_icon.png" alt="" width="45px" id="logo_insta"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="capa-sobre">
+    <div id="sobre-titulo">
+      <h1>Sobre mim</h1>
+    </div>
+    <div id="container">
+      <div id="botoes-sobre">
+        <button class="botao-sobre-texto" onclick="exibirTexto('pessoal')">História pessoal</button> <br>
+        <button class="botao-sobre-texto" onclick="exibirTexto('profissional')">História profissional</button> <br>
+        <button class="botao-sobre-texto" onclick="exibirTexto('premio')">Prêmio</button>
+      </div>
+
+      <div id="div-paragrafo-sobre">
+        <p id="paragrafoSobre"></p>
+      </div>
+    </div>
+  </main>
+  <footer id="contato">
+    <div class="conteudo-rodape">
+      <div class="coluna-rodape">
+        <h4>Contatos</h4>
+        <p>Email: contato@embelezamentoafro.com</p>
+        <p>Telefone: (11) 98788-4221</p>
+      </div>
+      <div class="coluna-rodape">
+        <h4>Endereço</h4>
+        <p>R. Casa do Trem, 14</p>
+        <p>São Paulo - SP</p>
+      </div>
+      <div class="coluna-rodape">
+        <h4>Redes Sociais</h4>
+        <p>@Studio_amanda.souza</p>
+      </div>
+    </div>
+    <div class="rodape-inferior">
+      &copy; 2025 Embelezamento Afro - Amanda Souza. Todos os direitos
+      reservados.
+    </div>
+  </footer>
+
+  <script src="sobre.js"></script>
+  <!-- Scripts -->
+
+  <script src="menu.js"></script>
+
+  <!-- Botão e área do VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <!-- Script do VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
+
+  <!-- Botão lateral fixo -->
+  <div id="btn-ouvir" aria-label="Ouvir página">🔊</div>
+
+  <!-- Botão parar leitura -->
+  <div id="btn-parar" aria-label="Parar leitura">⏹️</div>
+
+  <style>
+    /* Estilo do botão lateral */
+    #btn-ouvir,
+    #btn-parar {
+      position: fixed;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: #0077cc;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+    }
+
+    #btn-ouvir {
+      bottom: 100px;
+      /* posição superior */
+    }
+
+    #btn-parar {
+      bottom: 40px;
+      /* logo abaixo */
+      background: #cc0000;
+    }
+
+    #btn-ouvir:hover,
+    #btn-parar:hover {
+      opacity: 0.8;
+    }
+  </style>
+  <script>
+    if ("speechSynthesis" in window) {
+      const btnOuvir = document.getElementById("btn-ouvir");
+      const btnParar = document.getElementById("btn-parar");
+      let utterance;
+
+      btnOuvir.addEventListener("click", () => {
+        speechSynthesis.cancel(); // cancela leitura anterior
+
+        const main = document.querySelector("main");
+        const texto = main ? main.innerText : document.body.innerText;
+
+        utterance = new SpeechSynthesisUtterance(texto);
+        utterance.lang = "pt-BR";
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
+
+        speechSynthesis.speak(utterance);
+      });
+
+      btnParar.addEventListener("click", () => {
+        speechSynthesis.cancel();
+      });
+    } else {
+      alert("Seu navegador não suporta leitura de texto (SpeechSynthesis).");
+    }
+  </script>
+</body>
+
+</html>
